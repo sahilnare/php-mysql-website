@@ -5,7 +5,7 @@
 
 <main>
 	<div class="container is-fluid">
-	<form action="search.inc.php" method="post">
+	<form action="search.php" method="post">
 		<div class="field">
 		  <label class="label">Search</label>
 		  <div class="control">
