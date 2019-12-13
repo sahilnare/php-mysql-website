@@ -28,7 +28,7 @@
 			<div class="navbar-end">
 				<a class="navbar-item">Exams</a>
 
-				<a class="navbar-item">Colleges</a>
+				<a href="colleges.php" class="navbar-item">Colleges</a>
 
 				<a class="navbar-item">Blogs</a>
 

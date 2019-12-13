@@ -12,17 +12,17 @@ if (isset($_POST['col-sub'])) {
 		exit();
 	}
 
-	else if (!preg_match("/^[a-zA-Z]*$/", $name_college) && !preg_match("/^[a-zA-Z]*$/", $location)) {
+	else if (!preg_match("/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/", $name_college) && !preg_match("/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/", $location)) {
 		header("Location: ../submit.php?error=invalidnamelocation");
 		exit();
 	}
 
-	else if (!preg_match("/^\w+( \w+)*$/", $name_college)) {
+	else if (!preg_match("/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/", $name_college)) {
 		header("Location: ../submit.php?error=invalidname&insname=".$name_college);
 		exit();
 	}
 
-	else if (!preg_match("/^\w+( \w+)*$/", $location)) {
+	else if (!preg_match("/^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$/", $location)) {
 		header("Location: ../submit.php?error=invalidlocation&location=".$location);
 		exit();
 	}
