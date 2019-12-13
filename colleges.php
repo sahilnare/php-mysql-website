@@ -21,14 +21,20 @@
 		$resultCheck = mysqli_num_rows($result);
 		$college_name = array();
 		$college_location = array();
+		$college_data = array();
 
 		if ($resultCheck > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
-				array_push($college_name, $row['nameCollege']);
-				array_push($college_location, $row['location']);
+				// array_push($college_name, $row['nameCollege']);
+				// array_push($college_location, $row['location']);
+				$college_data[] = $row;
 			}
-			print_r($college_name);
-			print_r($college_location);
+			//print_r($college_data);
+			echo "<table class=\"table\"><tr><th>Name</th><th>Location</th></tr>";
+			foreach ($college_data as $coll) {
+				echo "<tr><td>".$coll['nameCollege']."</td><td>".$coll['location']."</td></tr>";
+			}
+			echo "</table>";
 		}
 		else {
 			echo "No colleges";
