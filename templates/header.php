@@ -39,7 +39,7 @@
 					<form action="search.php" method="post">
 						<div class="field has-addons">
 						  <div class="control">
-						    <input class="input is-small" name="search" type="text" placeholder="Name or location of college">
+						    <input class="input is-small" name="search" type="text" placeholder="Name or location of college" style="width: 180px;">
 						  </div>
 						  <div class="control">
 						    <button class="button is-link is-small" name="search-sub" type="submit">Search</button>
