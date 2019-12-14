@@ -9,7 +9,7 @@
 </head>
 <body>
 	<header>
-	<nav class="navbar" role="navigation" aria-label="main navigation">
+	<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="index.php">
 				<img src="assets/img/alexei.jpg" width="112" height="28">
@@ -22,10 +22,7 @@
 		</div>
 
 		<div id="navbarBasicExample" class="navbar-menu">
-			<!-- <div class="navbar-start">
-			</div> -->
-
-			<div class="navbar-end">
+			<div class="navbar-start">
 				<a class="navbar-item">Exams</a>
 
 				<a href="colleges.php" class="navbar-item">Colleges</a>
@@ -35,6 +32,21 @@
 				<a class="navbar-item">About us</a>
 
 				<a href="submit.php" class="navbar-item">Submit College</a>
+			</div>
+
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<form action="search.php" method="post">
+						<div class="field has-addons">
+						  <div class="control">
+						    <input class="input is-small" name="search" type="text" placeholder="Name or location of college">
+						  </div>
+						  <div class="control">
+						    <button class="button is-link is-small" name="search-sub" type="submit">Search</button>
+						  </div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</nav>
