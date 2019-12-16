@@ -44,7 +44,7 @@ if (isset($_POST['col-sub'])) {
 				exit();
 			}
 			else {
-				$sql = "INSERT INTO colleges (nameCollege, location) VALUES (?, ?)";
+				$sql = "INSERT INTO colleges (nameCollege, location) VALUES (?, ?);";
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql)) {
 					header("Location: ../submit.php?error=sqlerror");

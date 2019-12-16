@@ -48,7 +48,7 @@
 				}
 				echo "<table class=\"table\"><tr><th>Name</th><th>Location</th></tr>";
 				foreach ($college_data as $coll) {
-					echo "<tr><td>".$coll['nameCollege']."</td><td>".$coll['location']."</td></tr>";
+					echo "<tr><td><a href=\"college-page.php?idColleges=".$coll['idColleges']."\">".$coll['nameCollege']."</td><td>".$coll['location']."</a></td></tr>";
 				}
 				echo "</table>";
 			}
