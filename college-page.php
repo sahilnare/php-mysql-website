@@ -5,32 +5,7 @@
 
 <main>
 	<div class="container is-fluid">
-	<?php
-		// if(isset($_GET['error'])) {
-		// 	if($_GET['error'] == "emptyfields") {
-		// 		echo "<h3>Fill in all the fields!</h3>";
-		// 	}
-		// 	else if($_GET['error'] == "invalidnamelocation") {
-		// 		echo "<h3>The name and location entered are invalid!</h3>";
-		// 	}
-		// 	else if($_GET['error'] == "invalidname") {
-		// 		echo "<h3>The name entered is invalid!</h3>";
-		// 	}
-		// 	else if($_GET['error'] == "invalidlocation") {
-		// 		echo "<h3>The location entered is invalid!</h3>";
-		// 	}
-			
-		// 	else if($_GET['error'] == "collegetaken") {
-		// 		echo "<h3>The college is already registered!</h3>";
-		// 	}
-		// }
-		// else if (isset($_GET['submition'])) {
-		// 	if ($_GET['submition'] == "success") {
-		// 		echo "<h3>Submition successful!</h3>";
-		// 	}
-		// }
-
-	?>
+	
 	<?php
 		require 'includes/dbh.inc.php';
 
@@ -42,6 +17,7 @@
 		$college_data = array();
 		if ($resultCheck > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
+				$college_data[] = $row;
 				echo "<div class=\"card\">
 						  <div class=\"card-content\">
 						    <p class=\"title\">
@@ -57,44 +33,38 @@
 		else {
 			echo "No colleges";
 		}
+		$collegeName = $college_data[0]['nameCollege'];
+
+		$sql = "SELECT * FROM cutoff WHERE nameCollege='$collegeName';";
+		$result = mysqli_query($conn, $sql);
+		$resultCheck = mysqli_num_rows($result);
+		$cutoff_data = array();
+		if ($resultCheck > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$cutoff_data[] = $row;
+			}
+			echo "<table class=\"table\">
+					<tr>
+						<th>Year</th>
+						<th>Branch</th>
+						<th>Round</th>
+						<th>Cutoff Rank</th>
+					</tr>";
+			foreach ($cutoff_data as $coll) {
+						echo "<tr>
+							<td>".$coll['year']."</td>
+							<td>".$coll['branch']."</td>
+							<td>".$coll['round']."</td>
+							<td>".$coll['cutoffRank']."</td>
+						</tr>";
+			}
+			echo "</table>";
+		}
+		else {
+			echo "No data";
+		}
 	?>
-	<form action="includes/college.inc.php" method="post">
-		<div class="field">
-		  <label class="label">Branch</label>
-		  <div class="control">
-		    <input class="input" type="text" name="branch" placeholder="Branch">
-		  </div>
-		</div>
-
-		<div class="field">
-		  <label class="label">Round</label>
-		  <div class="control">
-		    <input class="input" type="text" name="round" placeholder="Round">
-		  </div>
-		</div>
-
-		<div class="field">
-		  <label class="label">Year</label>
-		  <div class="control">
-		    <input class="input" type="text" name="year" placeholder="Year">
-		  </div>
-		</div>
-
-		<div class="field">
-		  <label class="label">Cutoff Rank</label>
-		  <div class="control">
-		    <input class="input" type="text" name="cutoff-rank" placeholder="Cutoff Rank">
-		  </div>
-		</div>
-
-
-
-		<div class="field is-grouped">
-		  <div class="control">
-		    <button class="button is-link" name="cutoff-sub" type="submit">Submit</button>
-		  </div>
-		</div>
-	</form>
+	<a <?php echo"href=\"college-page-submit.php?idColleges=".$id."\"" ?> class="button is-link">Edit</a>
 	</div>
 </main>
 
