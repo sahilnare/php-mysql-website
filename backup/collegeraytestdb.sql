@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2019 at 02:36 PM
+-- Generation Time: Dec 19, 2019 at 03:11 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -49,38 +49,20 @@ INSERT INTO `colleges` (`idColleges`, `nameCollege`, `location`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cutoff`
+-- Table structure for table `rank2018`
 --
 
-CREATE TABLE `cutoff` (
-  `idCutoff` int(11) NOT NULL,
-  `nameCollege` longtext NOT NULL,
-  `branch` longtext DEFAULT NULL,
-  `round` int(2) DEFAULT NULL,
-  `year` int(5) DEFAULT NULL,
-  `cutoffRank` int(11) DEFAULT NULL
+CREATE TABLE `rank2018` (
+  `idMain` int(8) NOT NULL,
+  `roundNo` int(2) NOT NULL,
+  `name` tinytext NOT NULL,
+  `branch` tinytext NOT NULL,
+  `quota` varchar(4) NOT NULL,
+  `category` tinytext NOT NULL,
+  `seatPool` tinytext NOT NULL,
+  `opening` int(8) NOT NULL,
+  `closing` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cutoff`
---
-
-INSERT INTO `cutoff` (`idCutoff`, `nameCollege`, `branch`, `round`, `year`, `cutoffRank`) VALUES
-(1, 'IIT Bombay', 'Computer Science and Engineering', 1, 2019, 63),
-(2, 'IIT Bombay', 'Computer Science and Engineering', 2, 2019, 63),
-(3, 'IIT Bombay', 'Computer Science and Engineering', 3, 2019, 63),
-(4, 'IIT Bombay', 'Computer Science and Engineering', 4, 2019, 63),
-(5, 'IIT Bombay', 'Computer Science and Engineering', 5, 2019, 63),
-(6, 'IIT Bombay', 'Mechanical Engineering', 1, 2019, 998),
-(7, 'IIT Bombay', 'Mechanical Engineering', 2, 2019, 998),
-(8, 'IIT Bombay', 'Mechanical Engineering', 3, 2019, 998),
-(9, 'IIT Bombay', 'Mechanical Engineering', 4, 2019, 998),
-(10, 'IIT Bombay', 'Mechanical Engineering', 5, 2019, 998),
-(11, 'SVNIT Surat', 'Computer Science and Engineering', 1, 2019, 5338),
-(12, 'SVNIT Surat', 'Computer Science and Engineering', 2, 2019, 5726),
-(13, 'SVNIT Surat', 'Computer Science and Engineering', 3, 2019, 5726),
-(14, 'SVNIT Surat', 'Computer Science and Engineering', 4, 2019, 5760),
-(15, 'SVNIT Surat', 'Computer Science and Engineering', 5, 2019, 5760);
 
 --
 -- Indexes for dumped tables
@@ -93,10 +75,10 @@ ALTER TABLE `colleges`
   ADD PRIMARY KEY (`idColleges`);
 
 --
--- Indexes for table `cutoff`
+-- Indexes for table `rank2018`
 --
-ALTER TABLE `cutoff`
-  ADD PRIMARY KEY (`idCutoff`);
+ALTER TABLE `rank2018`
+  ADD PRIMARY KEY (`idMain`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -109,10 +91,10 @@ ALTER TABLE `colleges`
   MODIFY `idColleges` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `cutoff`
+-- AUTO_INCREMENT for table `rank2018`
 --
-ALTER TABLE `cutoff`
-  MODIFY `idCutoff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+ALTER TABLE `rank2018`
+  MODIFY `idMain` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
