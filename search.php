@@ -10,7 +10,7 @@
 		if (isset($_POST['search-sub'])) {
 			$search = mysqli_real_escape_string($conn, $_POST['search']);
 			// $search = $_POST['search'];
-			$sql = "SELECT * FROM colleges WHERE nameCollege LIKE '%$search%' OR location LIKE '%$search%';";
+			$sql = "SELECT * FROM colleges WHERE nameCollege LIKE '%$search%' OR location LIKE '%$search%' OR type LIKE '%$search%';";
 			//code change
 			// $stmt = mysqli_stmt_init($conn);
 			// if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -46,9 +46,9 @@
 				while($row = mysqli_fetch_assoc($result)) {
 					$college_data[] = $row;
 				}
-				echo "<table class=\"table\"><tr><th>Name</th><th>Location</th></tr>";
+				echo "<table class=\"table\"><tr><th>Name</th><th>Location</th><th>Type</th></tr>";
 				foreach ($college_data as $coll) {
-					echo "<tr><td><a href=\"college-page.php?idColleges=".$coll['idColleges']."\">".$coll['nameCollege']."</td><td>".$coll['location']."</a></td></tr>";
+					echo "<tr><td><a href=\"college-page.php?idColleges=".$coll['idColleges']."\">".$coll['nameCollege']."</td><td>".$coll['location']."</a></td><td>".$coll['type']."</td></tr>";
 				}
 				echo "</table>";
 			}
