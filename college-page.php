@@ -27,7 +27,7 @@
 						      ".$row['location']."
 						    </p>
 						  </div>
-						</div>";
+						</div><div><br /></div>";
 			}
 		}
 		else {
@@ -35,6 +35,23 @@
 		}
 	
 		$collegeName = $college_data[0]['nameCollege'];
+
+		$sql = "SELECT * FROM collegeranklist WHERE institute='$collegeName';";
+		$result = mysqli_query($conn, $sql);
+		$resultCheck = mysqli_num_rows($result);
+		$rank_data = array();
+		if ($resultCheck > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$rank_data[] = $row;
+			}
+			foreach ($rank_data as $coll) {
+						echo "<div class=\"card container is-fluid\">
+							<p class=\"title\">Ranking</p>
+							<p class=\"subtitle\">NIRF Rank for ".$coll['year']." :  ".$coll['rank']."</p>
+						</div><div><br /></div>";
+			}
+		}
+
 
 		$sql = "SELECT * FROM rank2018 WHERE name='$collegeName';";
 		$result = mysqli_query($conn, $sql);
