@@ -64,7 +64,6 @@
 			echo "No data";
 		}
 	?>
-	<a <?php echo"href=\"college-page-submit.php?idColleges=".$id."\"" ?> class="button is-link">Edit</a>
 	</div>
 </main>
 
